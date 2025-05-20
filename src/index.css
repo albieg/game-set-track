@@ -1,0 +1,35 @@
+@import "tailwindcss";
+
+:root {
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  
+  --ebony: #0F0820;
+  --meteorite: #371F76;
+  --gradient: linear-gradient(90deg, #0F0820 0%, #1D103E 55%, #3C2282 100%);
+  --chartreuse-yellow: #E1FF00;
+
+  
+}
+
+.goldman-regular {
+  font-family: "Goldman", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+body {
+  min-height: 100vh;
+  min-height: 100vh;
+  background-color: var(--ebony);
+}
+
+.prevent-select {
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none; /* IE 10 and IE 11 */
+  user-select: none; /* Standard syntax */
+}
+
