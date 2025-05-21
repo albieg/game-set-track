@@ -48,8 +48,7 @@ export default function LoginPage(){
 
     return (
         <>
-        
-        <div className="container login-page bg-amber-50">
+        <div className="text-amber-50 container bg-white/20 backdrop-blur-sm rounded-xl">
           <section>
             <h1>Welcome to the Game, Set. Match</h1>
             <p>Login or create an account to continue</p>
