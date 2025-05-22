@@ -11,7 +11,6 @@
   --meteorite: #371F76;
   --gradient: linear-gradient(90deg, #0F0820 0%, #1D103E 55%, #3C2282 100%);
   --chartreuse-yellow: #E1FF00;
-
   
 }
 
@@ -24,7 +23,6 @@
 body {
   min-height: 100vh;
   min-height: 100vh;
-  background-color: var(--ebony);
 }
 
 .prevent-select {
@@ -32,4 +30,3 @@ body {
   -ms-user-select: none; /* IE 10 and IE 11 */
   user-select: none; /* Standard syntax */
 }
-

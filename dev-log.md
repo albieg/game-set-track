@@ -100,6 +100,26 @@
 
 **Next:**
 - Style login page
-- Set up backend server to proxy API calls
+
+---
+
+## [2025-05-21]
+
+**What I worked on:**
+- Setup Firebase App Check
+- Started Login Page styling 
+
+**Next:**
+- Style login page
+
+---
+
+## [2025-05-22]
+
+**What I worked on:**
+- Continued Login Page styling 
+
+**Next:**
+- Complete login page styling
 
 ---

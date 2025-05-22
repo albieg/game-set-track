@@ -48,9 +48,13 @@ export default function LoginPage(){
 
     return (
         <>
-        <div className="text-amber-50 container bg-white/20 backdrop-blur-sm rounded-xl">
+        <body className="bg-[url(assets/shep-mcallister-photo.jpg)] bg-cover grid place-items-center">
+        <div className="text-amber-50  bg-white/10 backdrop-blur-xs rounded-xl grid h-130 w-120 place-items-center">
           <section>
-            <h1>Welcome to the Game, Set. Match</h1>
+            <h1 className="text-(--chartreuse-yellow) text-4xl goldman-regular prevent-select pb-2">Game, Set, Track</h1>
+            <h1>Like Letterboxd, but for tennis.</h1>
+
+            <div className="pt-12">
             <p>Login or create an account to continue</p>
             <div className="login-type">
               <button 
@@ -59,7 +63,7 @@ export default function LoginPage(){
                   Login
               </button>
               <button 
-                className="btn"
+                className=""
                 onClick={()=>setLoginType('signup')}>
                   Signup
               </button>
@@ -67,12 +71,13 @@ export default function LoginPage(){
             <form className="add-form login">
                   <div className="form-control">
                       <label>Email *</label>
-                      <input onChange={(e)=>{handleCredentials(e)}} type="text" name="email" placeholder="Enter your email" />
+                      <input onChange={(e)=>{handleCredentials(e)}} className="bg-amber-100" type="text" name="email" placeholder="Enter your email" />
                   </div>
                   <div className="form-control">
                       <label>Password *</label>
                       <input onChange={(e)=>{handleCredentials(e)}} type="password" name="password" placeholder="Enter your password" />
                   </div>
+
                   {
                     loginType == 'login' ?
                     <button onClick={(e)=>{handleLogin(e)}} className="active btn btn-block">Login</button>
@@ -86,12 +91,15 @@ export default function LoginPage(){
                         {error}
                     </div>
                   }
+                  
 
                   <p onClick={handlePasswordReset} className="forgot-password">Forgot Password?</p>
                   
               </form>
+              </div>
           </section>
         </div>
+        </body>
         </>
     )
 }
