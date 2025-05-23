@@ -5,7 +5,7 @@ import { createUserWithEmailAndPassword, signInWithEmailAndPassword, sendPasswor
 export default function LoginPage(){
     const [isLoading, setIsLoading] = useState(false);
     const [loginType, setLoginType] = useState("login");
-    const [userCredentials, setUserCredentials] = useState({});
+    const [userCredentials, setUserCredentials] = useState({ email: '', password: '' });
     const [error, setError] = useState("");
 
 
@@ -29,7 +29,7 @@ export default function LoginPage(){
     function handlePasswordReset(){
         const email = prompt("Please type your email");
         sendPasswordResetEmail(auth, email);
-        alert("Email sent! Check your inbox and you will find the instructions to reset your password.");
+        email && alert("Email sent! Check your inbox and you will find the instructions to reset your password.");
     }
 
     function handleLogin(e) {
@@ -48,41 +48,57 @@ export default function LoginPage(){
 
     return (
         <>
-        <body className="bg-[url(assets/shep-mcallister-photo.jpg)] bg-cover grid place-items-center">
-        <div className="text-amber-50  bg-white/10 backdrop-blur-xs rounded-xl grid h-130 w-120 place-items-center">
-          <section>
-            <h1 className="text-(--chartreuse-yellow) text-4xl goldman-regular prevent-select pb-2">Game, Set, Track</h1>
-            <h1>Like Letterboxd, but for tennis.</h1>
+        <div className="bg-[url(assets/shep-mcallister-photo.jpg)] bg-cover grid place-items-center min-h-screen w-full">
 
-            <div className="pt-12">
-            <p>Login or create an account to continue</p>
-            <div className="login-type">
+        <div className="text-amber-50 bg-white/10 backdrop-blur-xs rounded-xl grid place-items-center h-160 w-140">
+
+          <section className="flex flex-col items-center gap-4">
+
+            <h1 className="text-(--chartreuse-yellow) text-4xl goldman-regular prevent-select">Game, Set, Track</h1>
+            <h1 className="goldman-regular text-md text-white/80 prevent-select">Like Letterboxd, but for tennis.</h1>
+
+            <div className="pt-10 flex flex-col items-center gap-4">
+            <p className="text-lg text-white mb-5">Login or create an account to continue</p>
+
+            <div className="flex flex-row items-center gap-4 mb-3">
+
               <button 
-                className="btn"
+                className={loginType == 'login' ? "bg-(--meteorite) p-2 rounded-lg cursor-pointer w-26" : "bg-white/30 p-2 rounded-lg cursor-pointer w-26"}
                 onClick={()=>setLoginType('login')}>
                   Login
               </button>
+
               <button 
-                className=""
+                className={loginType == 'signup' ? "bg-(--meteorite) p-2 rounded-lg cursor-pointer w-26" : "bg-white/30 p-2 rounded-lg cursor-pointer w-26"}
                 onClick={()=>setLoginType('signup')}>
-                  Signup
+                  Sign Up
               </button>
             </div>
-            <form className="add-form login">
-                  <div className="form-control">
-                      <label>Email *</label>
-                      <input onChange={(e)=>{handleCredentials(e)}} className="bg-amber-100" type="text" name="email" placeholder="Enter your email" />
+
+            <form className="flex flex-col items-center gap-4 w-55">
+
+                  <div className="mb-3">
+                      <input onChange={(e)=>{handleCredentials(e)}} 
+                       className=" focus:outline-(--chartreuse-yellow) outline-2 outline-white/40 rounded-lg p-2 w-55"
+                       type="text" 
+                       name="email" 
+                       placeholder="Enter your email"
+                        />
                   </div>
+
                   <div className="form-control">
-                      <label>Password *</label>
-                      <input onChange={(e)=>{handleCredentials(e)}} type="password" name="password" placeholder="Enter your password" />
+                      <input onChange={(e)=>{handleCredentials(e)}}
+                      className=" focus:outline-(--chartreuse-yellow) outline-2 outline-white/40 rounded-lg p-2 w-55"
+                      type="password"
+                      name="password"
+                      placeholder="Enter your password" />
                   </div>
 
                   {
                     loginType == 'login' ?
-                    <button onClick={(e)=>{handleLogin(e)}} className="active btn btn-block">Login</button>
+                    <button onClick={(e)=>{handleLogin(e)}} className="cursor-pointer bg-(--meteorite) hover:bg-(--chartreuse-yellow) hover:text-black rounded-lg p-2 w-full mt-3">Login</button>
                     : 
-                    <button onClick={(e)=>{handleSignup(e)}} className="active btn btn-block">Sign Up</button>
+                    <button onClick={(e)=>{handleSignup(e)}} className="cursor-pointer bg-(--meteorite) hover:bg-(--chartreuse-yellow) hover:text-black rounded-lg p-2 w-full mt-3">Sign Up</button>
                   }
 
                   {
@@ -93,13 +109,13 @@ export default function LoginPage(){
                   }
                   
 
-                  <p onClick={handlePasswordReset} className="forgot-password">Forgot Password?</p>
+                  <p onClick={handlePasswordReset} className="cursor-pointer decoration-solid m-8 hover:underline ">Forgot Password?</p>
                   
               </form>
               </div>
           </section>
         </div>
-        </body>
+        </div>
         </>
     )
 }
