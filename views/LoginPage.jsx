@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { auth } from "../firebase";
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, sendPasswordResetEmail } from "firebase/auth";
+import { BackgroundSlideshow } from "../src/components/LoginPhotoShuffle";
 
 export default function LoginPage(){
     const [isLoading, setIsLoading] = useState(false);
@@ -47,10 +48,12 @@ export default function LoginPage(){
 
 
     return (
-        <>
-        <div className="bg-[url(assets/shep-mcallister-photo.jpg)] bg-cover grid place-items-center min-h-screen w-full">
+        <div className="relative min-h-screen w-full overflow-hidden grid place-items-center">
+          
+          <BackgroundSlideshow />
 
-        <div className="text-amber-50 bg-white/10 backdrop-blur-xs rounded-xl grid place-items-center h-160 w-140">
+        <div className="text-white bg-white/10 backdrop-blur-xs rounded-xl flex justify-center items-center h-160 w-160">
+        
 
           <section className="flex flex-col items-center gap-4">
 
@@ -63,13 +66,13 @@ export default function LoginPage(){
             <div className="flex flex-row items-center gap-4 mb-3">
 
               <button 
-                className={loginType == 'login' ? "bg-(--meteorite) p-2 rounded-lg cursor-pointer w-26" : "bg-white/30 p-2 rounded-lg cursor-pointer w-26"}
+                className={loginType == 'login' ? "bg-(--meteorite) p-2 rounded-lg cursor-pointer w-26 transition duration-400 ease-in-out" : "bg-white/30 p-2 rounded-lg cursor-pointer w-26 transition duration-400 ease-in-out"}
                 onClick={()=>setLoginType('login')}>
                   Login
               </button>
 
               <button 
-                className={loginType == 'signup' ? "bg-(--meteorite) p-2 rounded-lg cursor-pointer w-26" : "bg-white/30 p-2 rounded-lg cursor-pointer w-26"}
+                className={loginType == 'signup' ? "bg-(--meteorite) p-2 rounded-lg cursor-pointer w-26 transition duration-400 ease-in-out" : "bg-white/30 p-2 rounded-lg cursor-pointer w-26 transition duration-400 ease-in-out"}
                 onClick={()=>setLoginType('signup')}>
                   Sign Up
               </button>
@@ -79,7 +82,7 @@ export default function LoginPage(){
 
                   <div className="mb-3">
                       <input onChange={(e)=>{handleCredentials(e)}} 
-                       className=" focus:outline-(--chartreuse-yellow) outline-2 outline-white/40 rounded-lg p-2 w-55"
+                       className=" focus:outline-(--chartreuse-yellow) outline-2 outline-white/40 rounded-lg p-2 w-55 transition duration-400 ease-in-out"
                        type="text" 
                        name="email" 
                        placeholder="Enter your email"
@@ -88,7 +91,7 @@ export default function LoginPage(){
 
                   <div className="form-control">
                       <input onChange={(e)=>{handleCredentials(e)}}
-                      className=" focus:outline-(--chartreuse-yellow) outline-2 outline-white/40 rounded-lg p-2 w-55"
+                      className="focus:outline-(--chartreuse-yellow) outline-2 outline-white/40 rounded-lg p-2 w-55 transition duration-400 ease-in-out"
                       type="password"
                       name="password"
                       placeholder="Enter your password" />
@@ -96,9 +99,9 @@ export default function LoginPage(){
 
                   {
                     loginType == 'login' ?
-                    <button onClick={(e)=>{handleLogin(e)}} className="cursor-pointer bg-(--meteorite) hover:bg-(--chartreuse-yellow) hover:text-black rounded-lg p-2 w-full mt-3">Login</button>
+                    <button onClick={(e)=>{handleLogin(e)}} className="cursor-pointer bg-(--meteorite) hover:bg-(--chartreuse-yellow) hover:text-black rounded-lg p-2 w-full mt-3 transition duration-400 ease-in-out">Login</button>
                     : 
-                    <button onClick={(e)=>{handleSignup(e)}} className="cursor-pointer bg-(--meteorite) hover:bg-(--chartreuse-yellow) hover:text-black rounded-lg p-2 w-full mt-3">Sign Up</button>
+                    <button onClick={(e)=>{handleSignup(e)}} className="cursor-pointer bg-(--meteorite) hover:bg-(--chartreuse-yellow) hover:text-black rounded-lg p-2 w-full mt-3 transition duration-400 ease-in-out">Sign Up</button>
                   }
 
                   {
@@ -109,13 +112,12 @@ export default function LoginPage(){
                   }
                   
 
-                  <p onClick={handlePasswordReset} className="cursor-pointer decoration-solid m-8 hover:underline ">Forgot Password?</p>
+                  <p onClick={handlePasswordReset} className="cursor-pointer decoration-solid m-8 hover:underline">Forgot Password?</p>
                   
               </form>
               </div>
           </section>
         </div>
-        </div>
-        </>
+    </div>
     )
 }
