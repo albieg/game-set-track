@@ -10,9 +10,10 @@ export default function Matches() {
     const getMatches = async () => {
       setLoading(true);
         try {
-          const response = await fetch(url, options);
-          const result = await response.json();
-          const filtered = result.events.filter(i =>
+          const url = `/api?q${days}`
+          const response = await fetch(url);
+          const data = await response.json();
+          const filtered = data.events.filter(i =>
             [2000, 1000, 500, 250].includes(i?.tournament?.uniqueTournament?.tennisPoints) &&
             [1].includes(i?.homeTeam?.type)
           );

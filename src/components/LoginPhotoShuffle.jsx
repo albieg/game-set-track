@@ -1,22 +1,22 @@
 import { useEffect, useState } from "react";
 
 const images = [
-  "src/assets/jim-sung-photo.jpg",
-  "src/assets/sebastian-qin-photo.jpg",
-  "src/assets/shep-mcallister-photo.jpg",
-  "src/assets/sicong-li-photo.jpg",
-  "src/assets/tomas-evaristo-photo.jpg",
-  "src/assets/tommao-wang-photo.jpg",
-  "src/assets/yigit-arisoy-photo.jpg",
-  "src/assets/yoav-hornung-photo.jpg",
-  "src/assets/ashwin-tanjore-photo.jpg",
-  "src/assets/dylan-freedom-photo.jpg",
-  "src/assets/filip-mroz-photo.jpg",
-  "src/assets/gonzalo-mendiola-photo.jpg",
-  "src/assets/howard-bouchevereau-photo.jpg",
-  "src/assets/murray-photo.jpg",
-  "src/assets/sudan-ouyang-photo.jpg",
-  "src/assets/tennis-crowd-photo.jpg"
+  "src/assets/bg-shuffle/jim-sung-photo.jpg",
+  "src/assets/bg-shuffle/sebastian-qin-photo.jpg",
+  "src/assets/bg-shuffle/shep-mcallister-photo.jpg",
+  "src/assets/bg-shuffle/sicong-li-photo.jpg",
+  "src/assets/bg-shuffle/tomas-evaristo-photo.jpg",
+  "src/assets/bg-shuffle/tommao-wang-photo.jpg",
+  "src/assets/bg-shuffle/yigit-arisoy-photo.jpg",
+  "src/assets/bg-shuffle/yoav-hornung-photo.jpg",
+  "src/assets/bg-shuffle/ashwin-tanjore-photo.jpg",
+  "src/assets/bg-shuffle/dylan-freedom-photo.jpg",
+  "src/assets/bg-shuffle/filip-mroz-photo.jpg",
+  "src/assets/bg-shuffle/gonzalo-mendiola-photo.jpg",
+  "src/assets/bg-shuffle/howard-bouchevereau-photo.jpg",
+  "src/assets/bg-shuffle/murray-photo.jpg",
+  "src/assets/bg-shuffle/sudan-ouyang-photo.jpg",
+  "src/assets/bg-shuffle/tennis-crowd-photo.jpg"
 ];
 
 export function BackgroundSlideshow() {

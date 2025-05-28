@@ -133,3 +133,35 @@
 - Complete login page styling
 
 ---
+
+## [2025-05-26]
+
+**What I worked on:**
+- Finishing Login Page touches (show password + better responsiveness)
+
+**Next:**
+- Complete login page styling
+
+---
+
+## [2025-05-27]
+
+**What I worked on:**
+- Login Page responsiveness 
+- Built backend with Express for API security
+
+**Next:**
+- Implement dynamic API params through a library
+
+---
+
+## [2025-05-28]
+
+**What I worked on:**
+- Implemented dynamic API params with
+- 
+
+**Next:**
+- 
+
+---
