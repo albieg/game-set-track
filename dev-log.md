@@ -158,10 +158,32 @@
 ## [2025-05-28]
 
 **What I worked on:**
-- Implemented dynamic API params with
-- 
+- Implemented dynamic API params with day.js
 
 **Next:**
-- 
+- Fix API bugs
+
+---
+
+## [2025-06-01]
+
+**What I worked on:**
+- Implemented dynamic API params with day.js
+
+**Next:**
+- Fix backend bugs
+
+---
+
+## [2025-06-02]
+
+**What I worked on:**
+- Persistent backend bugs (now resolved)
+
+**Challenges:**
+- Figuring out what the the root of a 403 error was
+
+**Next:**
+- Fix other API bugs
 
 ---

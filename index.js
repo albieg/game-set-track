@@ -1,28 +1,45 @@
-const express = require('express')
-const cors = require('cors')
-const rateLimit = require('express-rate-limit')
-require('dotenv').config()
+import dotenv from 'dotenv';
+dotenv.config();
 
-const app = express()
+import express from 'express';
+import cors from 'cors';
+import rateLimit from 'express-rate-limit';
+import path from 'path';
+import { fileURLToPath } from 'url';
+import routes from './routes.js';
+import bodyParser from 'body-parser';
 
-//Enable cors
-app.use(cors())
 
-const PORT = process.env.PORT || 5000
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
-// Rate limits
-const limiter = rateLimit({
-    windowMS: 10 * 60 * 1000,
-    max : 10
-})
-app.use(limiter)
-app.set('trust proxy', 1)
+const app = express();
 
-// Set static folder
-app.use(express.static("public"))
+// Middleware to parse JSON bodies for all incoming requests
+app.use(bodyParser.json());
+
+// Enable CORS
+app.use(cors({
+  origin: 'http://localhost:5173',
+  credentials: true,
+}));
+
+const PORT = process.env.PORT || 5050;
+
+/*
+app.set('trust proxy', 1); */
+
+app.use((req, res, next) => {
+  console.log(`[${req.method}] ${req.originalUrl}`);
+  next();
+});
 
 // Routes
-app.use('/api', require('./routes'))
+app.use('/api', routes);
 
+// Set static folder
+/*
+app.use(express.static(path.join(__dirname, 'public'))); */
 
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`))
+// Start server
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));

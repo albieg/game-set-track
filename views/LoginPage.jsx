@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { auth } from "../firebase";
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, sendPasswordResetEmail } from "firebase/auth";
 import { BackgroundSlideshow } from "../src/components/LoginPhotoShuffle";
@@ -10,6 +11,8 @@ export default function LoginPage(){
     const [userCredentials, setUserCredentials] = useState({ email: '', password: '' });
     const [error, setError] = useState("");
     const [isVisible, setVisible] = useState(false);
+
+    const navigate = useNavigate();
 
     const toggle = () => {
       setVisible(!isVisible);
@@ -26,6 +29,7 @@ export default function LoginPage(){
         createUserWithEmailAndPassword(auth, userCredentials.email, userCredentials.password)
         .then((userCredential) => {
             const user = userCredential.user;
+            navigate('/HomePage');
         })
         .catch((error) => {
             setError(error.message);
@@ -45,6 +49,7 @@ export default function LoginPage(){
         signInWithEmailAndPassword(auth, userCredentials.email, userCredentials.password)
         .then((userCredential) => {
             const user = userCredential.user;
+            navigate('/HomePage');
         })
         .catch((error) => {
             setError(error.message);
@@ -83,22 +88,24 @@ export default function LoginPage(){
               </button>
             </div>
 
-            <form className="flex flex-col items-center gap-4 w-55">
+            <div className="flex flex-col items-center gap-4 w-55">
 
-                  <div className="mb-3">
+                  <form className="mb-3">
                       <input onChange={(e)=>{handleCredentials(e)}} 
                        className=" focus:outline-(--chartreuse-yellow) outline-2 outline-white/40 rounded-lg p-2 w-55 transition duration-400 ease-in-out"
                        type="text" 
                        name="email" 
                        placeholder="Enter your email"
                         />
-                  </div>
+                  </form>
 
-                  <div className="form-control ">
+                  <form className="form-control ">
                       <input onChange={(e)=>{handleCredentials(e)}}
                       type={!isVisible ? "password" : "text"}
                       className="focus:outline-(--chartreuse-yellow) outline-2 outline-white/40 rounded-lg p-2 w-55 transition duration-400 ease-in-out"
                       name="password"
+                      id="password"
+                      autoComplete={loginType == 'login' ? "current-password" : "new-password"}
                       placeholder="Enter your password" 
                       required />
 
@@ -106,7 +113,7 @@ export default function LoginPage(){
                         <img className="size-4 mr-2" onClick={toggle} src={isVisible ? "src/assets/showPass-icons/eye-solid.svg" : "src/assets/showPass-icons/eye-slash-solid.svg" }/>
                         <p className="text-sm" onClick={toggle}>{isVisible ? "Hide Password" : "Show Password"}</p>
                         </div>
-                  </div>
+                  </form>
 
                   {
                     loginType == 'login' ?
@@ -127,7 +134,7 @@ export default function LoginPage(){
 
                   <p onClick={handlePasswordReset} className="cursor-pointer decoration-solid m-3 hover:underline">Forgot Password?</p>
                   
-              </form>
+              </div>
               </div>
           </section>
         </div>

@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { today, yesterday, tomorrow } from "../utils/DatesParams";
 
 
 export default function Matches() {
@@ -7,55 +8,49 @@ export default function Matches() {
 
   
   useEffect(() => {
-    const getMatches = async () => {
-      setLoading(true);
-        try {
-          const url = `/api?q${days}`
-          const response = await fetch(url);
-          const data = await response.json();
-          const filtered = data.events.filter(i =>
-            [2000, 1000, 500, 250].includes(i?.tournament?.uniqueTournament?.tennisPoints) &&
-            [1].includes(i?.homeTeam?.type)
-          );
-          console.log(filtered);
-          setMatches(filtered);
-          setLoading(false);
-        } catch (error) {
-          console.error(error);
-        };
-    };
+  const getMatches = async () => {
+    setLoading(true);
+    try {
+      const url = `/api/matches/30/5/2025`; // calling your Express backend now
 
-    getMatches();
-  }, []);
-  
+      console.log("Fetching from URL:", url);
+
+      const response = await fetch(url);
+      console.log('Response status:', response.status);
+
+      if (!response.ok) {
+        const text = await response.text();
+        console.error('Error response:', text);
+        setLoading(false);
+        return; // exit early on error
+        }
+
+      const data = await response.json(); // now we expect JSON here
+
+      const filtered = data.events.filter(i =>
+        [2000, 1000, 500, 250].includes(i?.tournament?.uniqueTournament?.tennisPoints) &&
+        [1].includes(i?.homeTeam?.type)
+      );
+      console.log(filtered);
+      setMatches(filtered);
+    } catch (error) {
+      console.error(error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  getMatches();
+}, []);
+
 
   return (
     <>
+    {loading && <p className="text-amber-50">Loading matches...</p>}
+    {(matches.length === 0) && <p className="text-amber-50">No matches found.</p>}
+
+    <p className="text-amber-50">{matches}</p>
+    
     </>
   );
 }
-
-/*
-<div className="p-4">
-      <h2 className="text-xl font-bold mb-4">Matches</h2>
-      {loading ? (
-        <p>Loading...</p>
-      ) : matches.length === 0 ? (
-        <p>No upcoming matches found.</p>
-      ) : (
-        <ul className="space-y-2">
-          {matches.map((match) => (
-            <li key={match.id} className="border p-3 rounded shadow">
-              <div className="font-medium">{match.uniqueTournament.name}</div>
-              <div className="text-sm">
-                Category: {match.uniqueTournament.category.name.toUpperCase()}
-              </div>
-              <div className="text-sm italic">
-                Round: {match.roundInfo.round}
-              </div>
-            </li>
-          ))}
-        </ul>
-      )}
-    </div>
-    */

@@ -11,13 +11,13 @@ function App() {
   return (
       <BrowserRouter>
       <Routes>
-        <Route path="/" element={<LoginPage />}>
-          <Route element={<ProtectedRoutes />}>
-            <Route element={<Layout />}>
-            <Route index element={<HomePage />} />
-            <Route path="*" element={<NotFoundPage />} />
-          </Route>
-         </Route>
+        <Route path="/" element={<LoginPage />} />
+        
+        <Route element={<ProtectedRoutes />}>
+        <Route element={<Layout />}>
+        <Route path="/HomePage" element={<HomePage />} />
+        <Route path="*" element={<NotFoundPage />} />
+        </Route>
         </Route>
       </Routes>
       </BrowserRouter>

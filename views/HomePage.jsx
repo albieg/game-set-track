@@ -1,9 +1,10 @@
 import React from "react";
-import Header from "../src/components/Header";
+import Matches from "../src/features/Matches";
 
 export default function HomePage(){
     return(
         <>
+        <Matches/>
         </>
     )
 }
