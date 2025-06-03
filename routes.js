@@ -39,10 +39,9 @@ router.get('/search', cache('1 minutes'), async (req, res) => {
 
 router.get('/matches/:day/:month/:year', cache('1 minutes'), async (req, res) => {
   const { day, month, year } = req.params;
-  const date = `${day}/${month}/${year}`; // Proper ISO format
 
   try {
-    const url = `${API_BASE_URL}?${date}`;
+    const url = `${API_BASE_URL}/api/tennis/events/${day}/${month}/${year}`;
     const headers = {
       'X-RapidAPI-Key': API_KEY_VALUE,
       'X-RapidAPI-Host': 'tennisapi1.p.rapidapi.com',

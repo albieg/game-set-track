@@ -18,15 +18,16 @@ export default function Matches() {
       const response = await fetch(url);
       console.log('Response status:', response.status);
 
-      if (!response.ok) {
-        const text = await response.text();
-        console.error('Error response:', text);
-        setLoading(false);
-        return; // exit early on error
-        }
+       if (!response.ok) {
+         const text = await response.text();
+         console.error('Error response:', text);
+         setLoading(false);
+         return; // exit early on error
+         }
 
       const data = await response.json(); // now we expect JSON here
-
+      console.log('API response data:', data);
+      
       const filtered = data.events.filter(i =>
         [2000, 1000, 500, 250].includes(i?.tournament?.uniqueTournament?.tennisPoints) &&
         [1].includes(i?.homeTeam?.type)
@@ -49,7 +50,7 @@ export default function Matches() {
     {loading && <p className="text-amber-50">Loading matches...</p>}
     {(matches.length === 0) && <p className="text-amber-50">No matches found.</p>}
 
-    <p className="text-amber-50">{matches}</p>
+    <p className="text-amber-50">{matches.homeTeam}</p>
     
     </>
   );

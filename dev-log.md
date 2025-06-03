@@ -187,3 +187,17 @@
 - Fix other API bugs
 
 ---
+
+## [2025-06-03]
+
+**What I worked on:**
+- Out of the blue tailwinds css config problems
+- Refactored codebase
+
+**Challenges:**
+- Solving random conflict between packages 
+
+**Next:**
+- Work on formatting the data from the API and begin to build the match components
+
+---
