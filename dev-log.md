@@ -201,3 +201,14 @@
 - Work on formatting the data from the API and begin to build the match components
 
 ---
+
+## [2025-06-05]
+
+**What I worked on:**
+- Refactored API context
+- Formatted API data
+
+**Next:**
+- Start building match card component
+
+---
