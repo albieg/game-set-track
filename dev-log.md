@@ -212,3 +212,26 @@
 - Start building match card component
 
 ---
+
+## [2025-06-06]
+
+**What I worked on:**
+- Fixing backend bug (500 error, don't know what's causing it)
+
+**Challenges:**
+- Figuring out what's causing the 500 error.
+
+**Next:**
+- Fix this backend bug
+
+## [2025-06-08]
+
+**What I worked on:**
+- Solved backend bug (500 error)
+- 
+
+**Challenges:**
+- The error was solved by two things, centralizing env variables in a config file + run both servers together (used tool: concurrently)
+
+**Next:**
+-

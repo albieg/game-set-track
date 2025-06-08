@@ -1,14 +1,11 @@
-import dotenv from 'dotenv';
-dotenv.config();
-
+import { API_KEY_VALUE, API_BASE_URL } from './config.js';
 import express from 'express';
 import cors from 'cors';
 import rateLimit from 'express-rate-limit';
 import path from 'path';
 import { fileURLToPath } from 'url';
-import routes from './routes.js';
+import router from './routes.js';
 import bodyParser from 'body-parser';
-
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -30,12 +27,16 @@ const PORT = process.env.PORT || 5050;
 app.set('trust proxy', 1); */
 
 app.use((req, res, next) => {
+    if (!API_KEY_VALUE || !API_BASE_URL) {
+    console.error("⛔️ Env vars not set yet — blocking request.");
+    return res.status(500).json({ error: 'Server not ready. Try again in a second.' });
+  }
   console.log(`[${req.method}] ${req.originalUrl}`);
   next();
 });
 
 // Routes
-app.use('/api', routes);
+app.use('/api', router);
 
 // Set static folder
 /*

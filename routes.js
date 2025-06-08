@@ -1,17 +1,10 @@
-import dotenv from 'dotenv';
-dotenv.config();
-
+import { API_KEY_VALUE, API_BASE_URL } from './config.js';
 import express from 'express';
 import needle from 'needle';
 import apicache from 'apicache';
 import { parse } from 'url';
 
 const router = express.Router();
-
-// Env vars
-const API_BASE_URL = process.env.API_BASE_URL;
-const API_KEY_NAME = process.env.API_KEY_NAME;
-const API_KEY_VALUE = process.env.API_KEY_VALUE;
 
 console.log('API_BASE_URL:', API_BASE_URL);
 console.log('API_KEY_VALUE:', API_KEY_VALUE ? '***present***' : 'MISSING');
@@ -37,8 +30,10 @@ router.get('/search', cache('1 minutes'), async (req, res) => {
   }
 });
 
-router.get('/matches/:day/:month/:year', cache('1 minutes'), async (req, res) => {
+router.get('/matches/:day/:month/:year', async (req, res) => {
+  console.log("✅ /matches route hit");
   const { day, month, year } = req.params;
+  console.log('Received request for date:', { day, month, year });
 
   try {
     const url = `${API_BASE_URL}/api/tennis/events/${day}/${month}/${year}`;
@@ -53,15 +48,25 @@ router.get('/matches/:day/:month/:year', cache('1 minutes'), async (req, res) =>
 
     const apiRes = await needle('get', url, { headers });
 
-    if (apiRes.statusCode === 403) {
-      console.error("RapidAPI returned 403 Forbidden");
-      return res.status(403).json({ error: 'Forbidden from RapidAPI' });
+    if (!apiRes || !apiRes.body) {
+      console.error("❌ No response or body from RapidAPI");
+      return res.status(502).json({ error: 'No data returned from API' });
     }
 
-    res.status(200).json(apiRes.body);
+    if (apiRes.statusCode >= 400) {
+      console.error(`❌ API returned error (${apiRes.statusCode}):`, apiRes.body);
+      return res.status(apiRes.statusCode).json(apiRes.body);
+    }
+
+    console.log("✅ API call success");
+    console.log("RapidAPI response body:", apiRes.body);
+
+    // ✅ ONLY ONE RESPONSE SENT
+    return res.status(200).json(apiRes.body);
+
   } catch (error) {
     console.error("Backend API fetch error:", error.message);
-    res.status(500).json({ error: error.message });
+    return res.status(500).json({ error: error.message });
   }
 });
 

@@ -1,17 +1,19 @@
-import { useEffect, useState, useMemo, useContext } from "react";
+import React, { useEffect, useState, useMemo, createContext } from "react";
 import { today, yesterday, tomorrow } from "../utils/DatesParams";
 
-export const MatchContext = React.createContext()
+export const MatchContext = createContext();
 
-const MatchesProvider = ({ children }) => {
+export const MatchesProvider = ({ children }) => {
   const [data, setData] = useState(null);
   
   useEffect(() => {
+  const timer = setTimeout(() => {
   const getMatches = async () => {
+    console.log("🎾 Fetching from frontend useEffect...");
     try {
       const url = `/api/matches/30/5/2025`; // calling your Express backend now
       const response = await fetch(url);
-
+      console.log("🎾 Fetch complete", response);
        if (!response.ok) {
          const text = await response.text();
          console.error('Error response:', text);
@@ -20,20 +22,25 @@ const MatchesProvider = ({ children }) => {
 
       const data = await response.json(); 
       setData(data);
+      console.log("✅ Match data:", data);
     } catch (error) {
       console.error(error);
     } 
   };
   getMatches();
+}, 1000);
+return () => clearTimeout(timer);
 }, []);
 
 const matches = useMemo(() => {
   return data?.events
-         ?.filter(i =>
-        [2000, 1000, 500, 250].includes(i?.tournament?.uniqueTournament?.tennisPoints) &&
-        [1].includes(i?.homeTeam?.type))
-        
-        ?.map(i => ({
+      ?.filter(
+        (i) =>
+          [2000, 1000, 500, 250].includes(
+            i?.tournament?.uniqueTournament?.tennisPoints
+            ) && [1].includes(i?.homeTeam?.type)
+          )
+          ?.map((i) => ({
         // TOURNAMENT STATS
         id: i.id,
         tournamentName: i.tournament?.name,
@@ -106,7 +113,6 @@ const matches = useMemo(() => {
         player2Set5Breaker: i.awayScore?.period5TieBreak,
 
       })) ?? [];
-
 }, [data?.events]);
 
   return (
