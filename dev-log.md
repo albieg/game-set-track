@@ -235,3 +235,13 @@
 
 **Next:**
 -
+
+## [2025-06-09]
+
+**What I worked on:**
+- Built HomePage Containers
+- Built Match Card & Modal Container
+- Designed PageNotFound.jsx
+
+**Next:**
+- Plug data & design Match Cards & Modals

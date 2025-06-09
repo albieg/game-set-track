@@ -11,7 +11,7 @@ export const MatchesProvider = ({ children }) => {
   const getMatches = async () => {
     console.log("🎾 Fetching from frontend useEffect...");
     try {
-      const url = `/api/matches/30/5/2025`; // calling your Express backend now
+     // const url = `/api/matches/30/5/2025`; // calling your Express backend now
       const response = await fetch(url);
       console.log("🎾 Fetch complete", response);
        if (!response.ok) {

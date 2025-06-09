@@ -8,10 +8,20 @@
 
   
   --ebony: #0F0820;
+  --eggplant: #1D103E;
   --meteorite: #371F76;
-  --gradient: linear-gradient(90deg, #0F0820 0%, #1D103E 55%, #3C2282 100%);
   --chartreuse-yellow: #E1FF00;
+  --card-gradient: linear-gradient(180deg,rgba(29, 16, 62, 1) 25%, rgba(78, 43, 164, 1) 100%);
+  --modal-gradient: linear-gradient(180deg,rgba(15, 8, 32, 1) 18%, rgba(55, 31, 118, 1) 83%);
   
+}
+
+.card-gradient {
+  background-image: var(--card-gradient);
+}
+
+.modal-gradient {
+  background-image: var(--modal-gradient);
 }
 
 .goldman-regular {
@@ -30,4 +40,8 @@ body {
   -webkit-user-select: none; /* Safari */
   -ms-user-select: none; /* IE 10 and IE 11 */
   user-select: none; /* Standard syntax */
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
 }

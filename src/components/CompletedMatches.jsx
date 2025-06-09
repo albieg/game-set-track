@@ -1,30 +1,24 @@
-import React, { useRef, useState } from "react";
+import React, { useRef } from "react";
 import { useMatches } from "../hooks/useMatches";
 import { MatchCard } from "./MatchCard";
 
-export const UpcomingMatches = () => {
+export const CompletedMatches = () => {
     const { matches } = useMatches();
-    const [expanded, setExpanded] = useState(false);
 
     const scrollRef = useRef(null);
 
-    function Expand() {
-        setExpanded(i => !i)
-    }
-
     return (
-        <div className="bg-[var(--eggplant)] w-190 h-72 rounded-3xl relative mb-3">
+        <div className="bg-[var(--eggplant)] w-190 h-72 rounded-3xl relative mb-16">
 
-            <h1 className="capitalize text-white text-xl goldman-regular prevent-select mt-4 ml-7 ">Upcoming matches</h1>
+            <h1 className="capitalize text-white text-xl goldman-regular prevent-select mt-4 ml-7">Completed matches</h1>
 
             <button onClick={() => scrollRef.current.scrollBy({ left: -400, behavior: 'smooth' })}>
                 <img src="/src/assets/arrows/arrow-prev.svg" className="absolute left-0 top-32 size-9 cursor-pointer"></img>
             </button>
 
-            <div ref={scrollRef} className="overflow-x-scroll no-scrollbar flex flex-row gap-4 px-6">
-                <div onClick={Expand}>
+            <div ref={scrollRef} className="overflow-x-scroll no-scrollbar flex flex-row gap-4 px-7">
+
                 <MatchCard></MatchCard>
-                </div>
                 <MatchCard></MatchCard>
                 <MatchCard></MatchCard>
                 <MatchCard></MatchCard>
