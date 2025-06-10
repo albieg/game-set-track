@@ -11,7 +11,7 @@ export const MatchesProvider = ({ children }) => {
   const getMatches = async () => {
     console.log("🎾 Fetching from frontend useEffect...");
     try {
-     // const url = `/api/matches/30/5/2025`; // calling your Express backend now
+      //const url = `/api/matches/10/6/2025`; // calling your Express backend now
       const response = await fetch(url);
       console.log("🎾 Fetch complete", response);
        if (!response.ok) {
@@ -43,18 +43,18 @@ const matches = useMemo(() => {
           ?.map((i) => ({
         // TOURNAMENT STATS
         id: i.id,
-        tournamentName: i.tournament?.name,
+        tournamentName: i.tournament?.uniqueTournament?.name,
         tour: i.tournament?.category?.name,
         tournamentLevel: i.tournament?.uniqueTournament?.tennisPoints,
 
         // MATCH INFO
-        roundOf: i.roundInfo?.info,
+        roundOf: i.roundInfo?.name,
         matchStatus: i.status?.type,
         winner: i.winnerCode,
 
         ////
         // PLAYER 1 STATS
-        player1Name: i.homeTeam?.name,
+        player1Name: i.homeTeam?.shortName,
         player1Id: i.homeTeam?.id,
         player1Country: i.homeTeam?.country?.alpha3,
         player1Type: i.homeTeam?.type,
@@ -84,7 +84,7 @@ const matches = useMemo(() => {
 
         ////
         // PLAYER 2 STATS
-        player2Name: i.awayTeam?.name,
+        player2Name: i.awayTeam?.shortName,
         player2Id: i.awayTeam?.id,
         player2Country: i.awayTeam?.country?.alpha3,
         player2Type: i.awayTeam?.type,

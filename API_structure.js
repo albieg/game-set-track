@@ -13,7 +13,9 @@ API_result = { events : [ { tournament: { uniqueTournament : { tennisPoints: 200
             tournament: {
                 name: "Rome, Italy",
                 category: { name: "ATP" },
-                uniqueTournament: { tennisPoints: 1000 },
+                uniqueTournament: { tennisPoints: 1000,
+                    name: "",
+                 },
             },
 
             season: {
@@ -32,7 +34,7 @@ API_result = { events : [ { tournament: { uniqueTournament : { tennisPoints: 200
             winnerCode : 1,
 
             homeTeam: {
-                name: "C. Moutet",
+                shortName: "C. Moutet",
                 id: 175014,
                 country: { alpha3: "FRA" },
 
@@ -46,7 +48,7 @@ API_result = { events : [ { tournament: { uniqueTournament : { tennisPoints: 200
             },
 
             awayTeam: {
-                name: "H. Rune",
+                shortName: "H. Rune",
                 id: 283070,
                 country: { alpha3: "DNK" },
 

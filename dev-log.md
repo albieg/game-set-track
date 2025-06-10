@@ -224,6 +224,8 @@
 **Next:**
 - Fix this backend bug
 
+---
+
 ## [2025-06-08]
 
 **What I worked on:**
@@ -234,7 +236,7 @@
 - The error was solved by two things, centralizing env variables in a config file + run both servers together (used tool: concurrently)
 
 **Next:**
--
+- (?)
 
 ## [2025-06-09]
 
@@ -245,3 +247,17 @@
 
 **Next:**
 - Plug data & design Match Cards & Modals
+
+---
+
+## [2025-06-10]
+
+**What I worked on:**
+- Plugged data in upcoming matches cards
+- Designed data UI for match cards (to complete)
+- Wrote lookup objects to transform some data: country flags, match round, tournament labels (to complete)
+
+**Next:**
+- Complete design for Match Cards & Modals
+
+---
