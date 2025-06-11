@@ -12,8 +12,9 @@
   --meteorite: #371F76;
   --chartreuse-yellow: #E1FF00;
   --card-gradient: linear-gradient(180deg,rgba(29, 16, 62, 1) 25%, rgba(78, 43, 164, 1) 100%);
-  --modal-gradient: linear-gradient(180deg,rgba(15, 8, 32, 1) 18%, rgba(55, 31, 118, 1) 83%);
+  --modal-gradient: linear-gradient(180deg,rgba(15, 8, 32, 1) 18%, rgba(45, 20, 105, 1) 83%);
   --divider-gradient: linear-gradient(180deg,rgba(225, 255, 0, 0) 0%, rgba(225, 255, 0, 1) 50%, rgba(225, 255, 0, 0) 100%);
+  --container-gradient: linear-gradient(90deg,rgba(45, 20, 105, 0) 0%, rgba(45, 20, 105, 0.81) 20%, rgba(45, 20, 105, 1) 30%, rgba(45, 20, 105, 1) 50%, rgba(45, 20, 105, 1) 70%, rgba(45, 20, 105, 0.81) 80%, rgba(45, 20, 105, 0) 100%);
   
 }
 
@@ -25,6 +26,10 @@
   background-image: var(--modal-gradient);
 }
 
+.container-gradient {
+  background-image: var(--container-gradient);
+}
+
 .goldman-regular {
   font-family: "Goldman", sans-serif;
   font-weight: 400;
@@ -32,7 +37,16 @@
 }
 
 .card-text {
-  font-size: 9px;
+  font-size: 10px;
+}
+
+.button-text {
+  font-size: 10px;
+  font-weight: 600;
+}
+
+.small-text {
+  font-size: 7px;
 }
 
 .card-divider {

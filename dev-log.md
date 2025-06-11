@@ -255,7 +255,18 @@
 **What I worked on:**
 - Plugged data in upcoming matches cards
 - Designed data UI for match cards (to complete)
-- Wrote lookup objects to transform some data: country flags, match round, tournament labels (to complete)
+- Wrote lookup objects to format some data: country flags, match round, tournament labels (to complete)
+
+**Next:**
+- Complete design for Match Cards & Modals
+
+---
+
+## [2025-06-11]
+
+**What I worked on:**
+- Refactored of components architecture
+- Improved match card and container design
 
 **Next:**
 - Complete design for Match Cards & Modals

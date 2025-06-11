@@ -3,12 +3,11 @@ import { UpcomingMatches } from "../components/UpcomingMatches";
 import { CompletedMatches } from "../components/CompletedMatches";
 import { HeroSection } from "../components/HeroSection";
 
-export default function HomePage(){
+export default function HomePage() {
     return(
-        <div className="grid place-content-center">
+        <div className="flex flex-col mx-auto max-w-[1280px] px-4">
             <HeroSection></HeroSection>
-            <UpcomingMatches></UpcomingMatches>
             <CompletedMatches></CompletedMatches>
         </div>
-    )
-}
+    );
+};

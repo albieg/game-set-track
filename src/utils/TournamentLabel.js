@@ -56,6 +56,10 @@ export const TournamentLabel = {
     2594: "'s-Hertogenbosch",
     2483: "Stuttgart",
     27064: "WTA London",
-    //TODO
+    2689: "Nottingham",
+    2493: "Halle",
+    2494: "London",
+    3233: "Berlin",
+    
 
 }
