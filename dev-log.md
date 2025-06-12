@@ -272,3 +272,15 @@
 - Complete design for Match Cards & Modals
 
 ---
+
+## [2025-06-12]
+
+**What I worked on:**
+- Refactored Modal components & integrated open & close logic
+- Added animations for modals
+- Added tournaments in lookup object
+
+**Next:**
+- Complete design for Match Cards & Modals
+
+---

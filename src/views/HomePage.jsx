@@ -5,7 +5,7 @@ import { HeroSection } from "../components/HeroSection";
 
 export default function HomePage() {
     return(
-        <div className="flex flex-col mx-auto max-w-[1280px] px-4">
+        <div className="flex flex-col mx-auto max-w-[1280px] px-4 scroll-smooth min-h-screen">
             <HeroSection></HeroSection>
             <CompletedMatches></CompletedMatches>
         </div>

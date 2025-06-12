@@ -11,7 +11,7 @@ export const CardsContainer = ({title, children, onViewAll}) => {
             <h1 className="capitalize text-white text-xl goldman-regular prevent-select absolute left-14 top-6  mb-7">{title}</h1>
 
             {onViewAll && (
-            <button className="cursor-pointer button-text text-[var(--chartreuse-yellow)] border absolute right-14 top-6 py-1 px-5 rounded-3xl">VIEW ALL</button>
+            <button onClick={onViewAll} className="cursor-pointer button-text text-[var(--chartreuse-yellow)] border absolute right-14 top-6 py-1 px-5 rounded-3xl">VIEW ALL</button>
             )}
 
             <div className="flex flex-row items-center mt-18"> 
@@ -20,7 +20,7 @@ export const CardsContainer = ({title, children, onViewAll}) => {
                 <img src="/src/assets/arrows/arrow-prev.svg" className=" size-30 cursor-pointer"></img>
             </button>
 
-            <div ref={scrollRef} className="overflow-x-scroll no-scrollbar flex flex-row gap-2 ">
+            <div ref={scrollRef} className="overflow-x-scroll no-scrollbar flex flex-row gap-2 snap-x snap-mandatory">
 
                 {children}
 
