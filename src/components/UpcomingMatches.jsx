@@ -21,7 +21,7 @@ export const UpcomingMatches = () => {
             <h1 className="capitalize text-white text-xl goldman-regular prevent-select mt-4 ml-7 ">Upcoming matches</h1>
 
             <button onClick={() => scrollRef.current.scrollBy({ left: -400, behavior: 'smooth' })}>
-                <img src="/src/assets/arrows/arrow-prev.svg" className="absolute left-0 top-32 size-9 cursor-pointer"></img>
+                <img src="/src/assets/ui-icons/arrow-prev.svg" className="absolute left-0 top-32 size-9 cursor-pointer"></img>
             </button>
 
             <div ref={scrollRef} className="overflow-x-scroll no-scrollbar flex flex-row gap-4 px-6">
@@ -61,7 +61,7 @@ export const UpcomingMatches = () => {
             </div>
 
             <button onClick={() => scrollRef.current.scrollBy({ left: 400, behavior: 'smooth' })}>
-                <img src="/src/assets/arrows/arrow-next.svg" className="absolute right-0 top-32 size-9 cursor-pointer"></img>
+                <img src="/src/assets/ui-icons/arrow-next.svg" className="absolute right-0 top-32 size-9 cursor-pointer"></img>
             </button>
 
         </div>

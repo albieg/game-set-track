@@ -11,7 +11,7 @@ export const ModalContainer = ({children}) => {
         transition={{ duration: 0.2 }}
         >
         <motion.div
-        className="modal-gradient w-full max-w-[860px] h-190 mx-8 rounded-3xl"
+        className="modal-gradient w-full max-w-[860px] h-190 mx-8 rounded-3xl relative"
         initial={{ scale: 0.95, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
         exit={{ scale: 0.95, opacity: 0 }}

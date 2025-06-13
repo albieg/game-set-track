@@ -284,3 +284,13 @@
 - Complete design for Match Cards & Modals
 
 ---
+
+## [2025-06-13]
+
+**What I worked on:**
+- Match Modal design
+
+**Next:**
+- Complete design for Match Cards & Modals
+
+---

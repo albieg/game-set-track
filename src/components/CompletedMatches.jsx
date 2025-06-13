@@ -20,7 +20,7 @@ export const CompletedMatches = () => {
     }
     
     useEffect(() => {
-        if (expandList) {
+        if (expandList || expandMatch) {
             document.body.style.overflow = 'hidden';
         } else {
             document.body.style.overflow = '';
@@ -28,7 +28,7 @@ export const CompletedMatches = () => {
         return () => {
             document.body.style.overflow = '';
         };
-    }, [expandList]);
+    }, [expandList, expandMatch]);
 
 
     return (

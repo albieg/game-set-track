@@ -17,7 +17,7 @@ export const CardsContainer = ({title, children, onViewAll}) => {
             <div className="flex flex-row items-center mt-18"> 
 
             <button onClick={() => scrollRef.current.scrollBy({ left: -400, behavior: 'smooth' })}>
-                <img src="/src/assets/arrows/arrow-prev.svg" className=" size-30 cursor-pointer"></img>
+                <img src="/src/assets/ui-icons/arrow-prev.svg" className=" size-30 cursor-pointer"></img>
             </button>
 
             <div ref={scrollRef} className="overflow-x-scroll no-scrollbar flex flex-row gap-2 snap-x snap-mandatory">
@@ -27,7 +27,7 @@ export const CardsContainer = ({title, children, onViewAll}) => {
             </div>
 
             <button onClick={() => scrollRef.current.scrollBy({ left: 400, behavior: 'smooth' })}>
-                <img src="/src/assets/arrows/arrow-next.svg" className="size-30 cursor-pointer"></img>
+                <img src="/src/assets/ui-icons/arrow-next.svg" className="size-30 cursor-pointer"></img>
             </button>
 
             </div>
