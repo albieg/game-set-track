@@ -2,7 +2,7 @@ import React from "react";
 
 export const MatchCard = ({ onExpand, p1Flag, p1Name, p2Flag, p2Name, tournament, tour, level, scoreTime, ball }) => {
     return (
-        <div onClick={onExpand} className="card bg-black/10 backdrop-blur-xs min-w-72 min-h-64 m-3 rounded-3xl relative snap-center shrink-0 cursor-pointer">
+        <div onClick={onExpand} className="card bg-black/10 backdrop-blur-xs min-w-72 max-w-72 min-h-64 m-3 rounded-3xl relative snap-center shrink-0 cursor-pointer">
 
             <div className="card-divider h-40 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"></div>
 

@@ -1,18 +1,33 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 
 
-export const CardsContainer = ({title, children, onViewAll}) => {
 
+export const CardsContainer = ({title, children, nextDay, prevDay}) => {
+    const [date, setDate] = useState("today");
     const scrollRef = useRef(null);
 
+
     return (
-        <div className="container-gradient relative w-auto h-100 rounded-3xl mb-16">
+        <div className="container-gradient relative w-auto h-100 rounded-3xl mb-16 ">
 
-            <h1 className="capitalize text-white text-xl goldman-regular prevent-select absolute left-14 top-6  mb-7">{title}</h1>
+            <h1 className="capitalize text-white text-2xl goldman-regular prevent-select absolute left-16 top-6 mb-7">{title}</h1>
 
-            {onViewAll && (
-            <button onClick={onViewAll} className="cursor-pointer button-text text-[var(--chartreuse-yellow)] border absolute right-14 top-6 py-1 px-5 rounded-3xl">VIEW ALL</button>
+            <section className="text-white/30 border absolute right-16 top-6 rounded-4xl inline-flex items-center p-0 m-0">
+            <button 
+            onClick={()=>setDate('today')}
+            className={date == "today" ? "cursor-pointer button-text text-[var(--chartreuse-yellow)] bg-white/30 py-2 px-3 rounded-3xl leading-none m-0 transition duration-400 ease-in-out" : "cursor-pointer button-text text-white/30 py-2 px-3 rounded-3xl leading-none m-0 transition duration-400 ease-in-out"}>
+                TODAY
+            </button>
+
+            {nextDay && (
+            <button 
+            onClick={()=>setDate('tomorrow')}
+            className={date == "tomorrow" ? "cursor-pointer button-text text-[var(--chartreuse-yellow)] bg-white/30 py-2 px-3 rounded-3xl leading-none m-0 transition duration-400 ease-in-out" : "cursor-pointer button-text text-white/30 py-2 px-3 rounded-3xl leading-none m-0 transition duration-400 ease-in-out"}>
+                TOMORROW
+            </button>
             )}
+            </section>
+
 
             <div className="flex flex-row items-center mt-18"> 
 

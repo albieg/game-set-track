@@ -1,15 +1,9 @@
 import React, {useState} from "react";
 import { ModalContainer } from "./ModalContainer";
+import { ModalButton } from "./MatchModalButton";
 
 
 export const MatchModal = ({collapse}) => {
-    const [checkmark, setCheckmark] = useState(false);
-
-    const toggle = () => {
-        setCheckmark(!checkmark)
-    }
-
-
     return (
         <ModalContainer>
 
@@ -51,19 +45,12 @@ export const MatchModal = ({collapse}) => {
 
             <section className="absolute top-7/10 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-30">
             <div className="bg-[var(--chartreuse-yellow)] w-32 h-9 rounded-4xl flex justify-center items-center">
-                <p className="goldman-regular">Round of 16</p>
+                <p className="goldman-regular">Round of 128</p>
             </div>
             </section>
             <div className="modal-divider w-150 absolute top-7/10 left-1/2 transform -translate-x-1/2 -translate-y-1/2"></div>
 
-            <section>
-                <div className=" text-white text-xs absolute top-17/20 left-1/2 transform -translate-x-1/2 -translate-y-1/2 pb-4">
-                    Add to Watchlist
-                </div>
-                <button onClick={toggle} className="cursor-pointer absolute top-9/10 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-                    <img src="/src/assets/ui-icons/add-option.svg" className="size-10"></img>
-                </button>
-            </section>
+            <ModalButton></ModalButton>
 
         </ModalContainer>
     )

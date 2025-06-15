@@ -102,6 +102,17 @@ export const TournamentLabel = {
     //MISSING "Brussels"
     21145: "Ningbo",
     23849: "Almaty",
-
+    2382: "Stockholm",
+    2570: "Osaka",
+    2428: "Vienna",
+    2579: "Guangzhou",
     2582: "Tokyo",
+    2406: "2406",
+    24003: "Jiujiang",
+    //MISSING Paris bercy
+    2575: "Hong Kong",
+    11864: "WTA Finals",
+    2507: "Belgrade",
+    2496: "Metz",
+    2517: "ATP Finals"
 }

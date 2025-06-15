@@ -2,17 +2,16 @@ import React, { useState, useEffect } from "react";
 import { useMatches } from "../hooks/useMatches";
 import { MatchCard } from "./MatchCard";
 import { CardsContainer } from "./CardsContainer";
-import { MatchListModal } from "./MatchListModal";
 import { MatchModal } from "./MatchModal";
 import { AnimatePresence } from "framer-motion";
 
 export const CompletedMatches = () => {
     const { matches } = useMatches();
-    const [expandList, setExpandList] = useState(false);
+    const [nextDay, setNextDay] = useState(false);
     const [expandMatch, setExpandMatch] = useState(false);
 
-    const fullList = () => {
-        setExpandList(!expandList);
+    const tomorrow = () => {
+        setNextDay(!nextDay)
     };
 
     const fullMatch = () => {
@@ -20,7 +19,7 @@ export const CompletedMatches = () => {
     }
     
     useEffect(() => {
-        if (expandList || expandMatch) {
+        if (expandMatch) {
             document.body.style.overflow = 'hidden';
         } else {
             document.body.style.overflow = '';
@@ -28,13 +27,13 @@ export const CompletedMatches = () => {
         return () => {
             document.body.style.overflow = '';
         };
-    }, [expandList, expandMatch]);
+    }, [expandMatch]);
 
 
     return (
         <>
         
-        <CardsContainer title="Completed Matches" onViewAll={fullList}>
+        <CardsContainer title="Completed Matches" nextDay={tomorrow}>
 
              <MatchCard 
              onExpand={fullMatch}
@@ -60,11 +59,6 @@ export const CompletedMatches = () => {
                 <MatchCard></MatchCard>
                 <MatchCard></MatchCard>
         </CardsContainer>
-
-
-        <AnimatePresence>
-        {expandList && <MatchListModal collapse={fullList}></MatchListModal>}
-        </AnimatePresence>
         
         <AnimatePresence>
         {expandMatch && <MatchModal collapse={fullMatch}></MatchModal>}
